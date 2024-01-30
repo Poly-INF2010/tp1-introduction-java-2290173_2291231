@@ -29,17 +29,18 @@ public final class PointOperator {
     public static void rotate(Double[] vector, Double[][] rotationMatrix) {
 
         Double[] resultVector = new Double[vector.length];
-//        int pos = 0;
-//        for(Double[] column : rotationMatrix) {
-//            double sum = 0;
-//            for(int i = 0; i < vector.length; i++) {
-//                sum+= column[i] * vector[i];
-//            }
-//            resultVector[pos++] = sum;
-//        }
-        resultVector[0] = 2.0;
-        resultVector[1] = 1.0;
-        vector = resultVector;
+
+        for(int i = 0; i < rotationMatrix.length; i++) {
+            Double sum = 0.0;
+            for(int j = 0; j < rotationMatrix[i].length; j++) {
+                sum += vector[j] * rotationMatrix[i][j];
+            }
+            resultVector[i] = sum;
+        }
+
+        for(int i = 0; i < vector.length; i++) {
+            vector[i] = resultVector[i];
+        }
 
     }
 
