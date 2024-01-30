@@ -10,7 +10,7 @@ public class Point2d extends AbstractPoint {
      * @param y Y coordinate
      */
     public Point2d(Double x, Double y) {
-        super(new double[] {0.0, 0.0});
+        super(new double[] {x, y});
     }
 
     /** TODO
@@ -18,7 +18,7 @@ public class Point2d extends AbstractPoint {
      * @param vector Vector containing X and Y coordinates
      */
     public Point2d(Double[] vector) {
-        this(0.0, 0.0);
+        this(vector[0], vector[1]);
     }
 
     /**
@@ -38,7 +38,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d translate(Double[] translateVector) {
-        return null;
+        double x = translateVector[0] + this.vector[0];
+        double y = translateVector[1] + this.vector[1];
+        return new Point2d(x, y);
     }
 
     /** TODO
@@ -47,7 +49,10 @@ public class Point2d extends AbstractPoint {
      * @return Translated point
      */
     public Point2d translate(Point2d translateVector) {
-        return null;
+        double x = translateVector.X() + this.vector[0];
+        double y = translateVector.Y() + this.vector[1];
+        Point2d point = new Point2d(x, y);
+        return point;
     }
 
     /** TODO
@@ -57,7 +62,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        return null;
+        double x = this.vector[0] * rotationMatrix[0][0] + this.vector[1] * rotationMatrix[0][1];
+        double y = this.vector[0] * rotationMatrix[1][0] + this.vector[1] * rotationMatrix[1][1];
+        return new Point2d(x, y);
     }
 
     /** TODO
@@ -76,7 +83,9 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d divide(Double divider) {
-        return null;
+        double x = this.vector[0]/divider;
+        double y = this.vector[1]/divider;
+        return new Point2d(x, y);
     }
 
     /** TODO
@@ -86,6 +95,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d multiply(Double multiplier) {
+
         return null;
     }
 
