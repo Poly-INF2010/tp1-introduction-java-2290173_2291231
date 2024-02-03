@@ -12,9 +12,6 @@ public final class PointOperator {
      */
     public static void translate(Double[] vector, Double[] translateVector) {
 
-        Double[] result = new Double[vector.length];
-
-
         for(int i = 0; i < vector.length; i++) {
             vector[i] += translateVector[i];
         }
@@ -38,10 +35,7 @@ public final class PointOperator {
             }
         }
 
-        for(int i = 0; i < vector.length; i++) {
-            vector[i] = resultVector[i];
-//            System.out.println(resultVector[i]);
-        }
+        System.arraycopy(resultVector, 0, vector, 0, vector.length);
 
     }
 

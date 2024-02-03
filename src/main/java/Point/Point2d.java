@@ -1,8 +1,5 @@
 package Point;
 
-import java.awt.*;
-import java.util.Arrays;
-
 public class Point2d extends AbstractPoint {
     private final Integer X = 0;
     private final Integer Y = 1;
