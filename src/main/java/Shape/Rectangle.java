@@ -12,6 +12,11 @@ public class Rectangle extends BaseShape {
      */
     public Rectangle(Double width, Double height) {
 
+        for (double i = - (height/2) ; i < height/2; i += 0.5) {
+            for (double j = - (width/2) ; j < width/2; j += 0.5){
+                add(new Point2d(j, i));
+            }
+        }
     }
 
     /** TODO
@@ -19,7 +24,7 @@ public class Rectangle extends BaseShape {
      * @param dimensions 2D point containing the width and height of the rectangle
      */
     public Rectangle(Point2d dimensions) {
-
+        this(dimensions.X(), dimensions.Y());
     }
 
     /**
@@ -35,6 +40,6 @@ public class Rectangle extends BaseShape {
      */
     @Override
     public Rectangle clone() {
-        return null;
+        return new Rectangle(this.cloneCoords());
     }
 }
