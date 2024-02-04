@@ -62,7 +62,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        return null;
+        PointOperator.rotate(this.vector, rotationMatrix);
+        return this;
     }
 
     /** TODO
@@ -71,7 +72,12 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        return null;
+        double cos = Math.cos(angle);
+        double sin = Math.sin(angle);
+
+        this.vector[X] = this.vector[X] * cos - this.vector[Y] * sin;
+        this.vector[Y] = this.vector[X] * sin + this.vector[Y] * cos;
+        return this;
     }
 
     /** TODO
