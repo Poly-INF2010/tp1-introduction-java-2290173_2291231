@@ -1,7 +1,5 @@
 package Point;
 
-import java.awt.*;
-
 public class Point2d extends AbstractPoint {
     private final Integer X = 0;
     private final Integer Y = 1;
@@ -62,6 +60,7 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
+
         PointOperator.rotate(this.vector, rotationMatrix);
         return this;
     }
@@ -72,11 +71,12 @@ public class Point2d extends AbstractPoint {
      * @return Rotated point
      */
     public Point2d rotate(Double angle) {
-        double cos = Math.cos(angle);
-        double sin = Math.sin(angle);
+        Double[][] rotationMatrix = {
+                { Math.cos(angle), -Math.sin(angle)},
+                { Math.sin(angle), Math.cos(angle)}
+        };
 
-        this.vector[X] = this.vector[X] * cos - this.vector[Y] * sin;
-        this.vector[Y] = this.vector[X] * sin + this.vector[Y] * cos;
+        PointOperator.rotate(this.vector, rotationMatrix);
         return this;
     }
 
