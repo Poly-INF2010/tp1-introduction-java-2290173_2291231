@@ -10,15 +10,6 @@ public class Ellipse extends BaseShape {
      * Create a filled Ellipse that is centered on (0, 0)
      * @param widthDiameter  Width of the Ellipse
      * @param heightDiameter Height of the Ellipse
-     *
-     *                       double perimetre = 2 * Math.PI * Math.sqrt((a * a + b * b) / 2);
-     *         double step = 2 * Math.PI / (perimetre / 0.5);
-     *
-     *         for (double angle = 0; angle < 2 * Math.PI; angle += step) {
-     *             double x = a * Math.cos(angle);
-     *             double y = b * Math.sin(angle);
-     *             this.add(new Point2d(x, y));
-     *         }
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
 
