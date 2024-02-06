@@ -20,7 +20,6 @@ public final class LetterFactory {
     final static Double angleN = 160.0;
     final static Double middleBarNScalar = 1.05;
     final static Double bCircleSize = maxHeight / 4;
-    final static Double hollowedBCircleSize = maxHeight / 5;
 
     /**
      * Create the letter A graphically
@@ -53,7 +52,7 @@ public final class LetterFactory {
         letterB.translate(letterB.getCoords(), new Point2d(-halfMaxWidth, 0.0));
 
         var hollowCircle = new Circle(bCircleSize);
-        hollowCircle.remove(new Circle(hollowedBCircleSize));
+        hollowCircle.remove(new Circle(halfMaxWidth));
         var topCircle = hollowCircle.clone();
 
         hollowCircle.translate(hollowCircle.getCoords(), new Point2d(0.0, halfMaxWidth*circleBPositionScalar));
