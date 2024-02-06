@@ -11,7 +11,7 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
-
+        super();
         for (double i = - (height/2) ; i < height/2; i += 0.5) {
             for (double j = - (width/2) ; j < width/2; j += 0.5){
                 add(new Point2d(j, i));
@@ -32,7 +32,7 @@ public class Rectangle extends BaseShape {
      * @param coords The collection of 2D points
      */
     private Rectangle(Collection<Point2d> coords) {
-
+        super(coords);
     }
 
     /** TODO

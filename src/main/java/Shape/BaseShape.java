@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 
 public class BaseShape extends Transform implements Cloneable {
-    private Collection<Point2d> coords;
+    private final Collection<Point2d> coords;
 
 //helper function to clone a list of points 
   public Collection<Point2d> cloneCoords(Collection<Point2d> coords) {
@@ -28,9 +28,7 @@ public class BaseShape extends Transform implements Cloneable {
      */
     public BaseShape(Collection<Point2d> coords) {
         this();
-        for(Point2d coord : coords) {
-            this.coords.add(coord.clone());
-        }
+        addAll(coords);
     }
 
     /** TODO
@@ -104,7 +102,8 @@ public class BaseShape extends Transform implements Cloneable {
      * */
     public BaseShape replaceAll(Collection<Point2d> newCoords) {
         this.removeAll(this.coords);
-        return null;
+        this.addAll(newCoords);
+        return this;
     }
 
     /** TODO
@@ -112,7 +111,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Shallow copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> getCoords() {
-        return new ArrayList<>(this.coords);
+        return new ArrayList<Point2d>(this.coords);
     }
     /** TODO
      * Create and return a deep copy of the coordinates of the shape

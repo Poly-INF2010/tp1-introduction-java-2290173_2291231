@@ -93,6 +93,8 @@ public class LetterPlacer {
         Point2d center = new Point2d(-(nextLetter.getMaxX() + nextLetter.getMinX())/2,
                 -(nextLetter.getMaxY() + nextLetter.getMinY())/2);
 
+        nextLetter.getCoords();
+
         nextLetter.replaceAll((nextLetter.translate(nextLetter.getCoords(), center)));
         nextLetter.replaceAll((nextLetter.translate(nextLetter.getCoords(), nextLetter.getMaxCoord())));
         nextLetter.replaceAll(nextLetter.translate(nextLetter.getCoords(), nextPosition));
@@ -115,6 +117,7 @@ public class LetterPlacer {
                 .collect(Collectors.toList())).getMaxCoord();
 
         int[][] pixels = new int[(int)(max.Y() + padding)][(int)(max.X() + padding)];
+
         for (Collection<Point2d> coords : shapes) {
             int color = saveInWhite ? getWhite() : getRandomRGB();
             for (Point2d point : coords) {
